@@ -1,5 +1,5 @@
 ## Usefull commands
-### 1. Close all ports except 80, 443 with iptables:
+### 1. Close all ports except 22 with iptables:
 ```
-iptables -A INPUT -p tcp -m tcp -m multiport ! --dports 80,443 -j DROP
+iptables -A INPUT -p tcp -m tcp -m multiport ! --dports 22 -j DROP
 ```

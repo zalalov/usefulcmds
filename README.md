@@ -9,3 +9,13 @@ iptables -A INPUT -p tcp -m tcp -m multiport ! --dports 22 -j DROP
 wget git.io/mwscan.txt
 grep -Erlf mwscan.txt /check/dir/
 ```
+
+### 3. Docker cleanup
+```
+docker stop $(docker ps -q)
+docker rm $(docker ps -q --all)
+docker rmi $(docker images -q)
+cd /var/lib/docker/aufs
+rm -rf *
+/etc/init.d/docker restart
+```

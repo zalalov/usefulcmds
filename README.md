@@ -19,3 +19,8 @@ cd /var/lib/docker/aufs
 rm -rf *
 /etc/init.d/docker restart
 ```
+
+### 4. MTProxy
+```
+docker run -d -p4443:443 -v proxy-config:<CONFIG_PATH> -e SECRET=<SECRET> --name mtproxy telegrammessenger/proxy:latest
+```

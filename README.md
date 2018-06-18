@@ -24,3 +24,18 @@ rm -rf *
 ```
 docker run -d -p4443:443 -v proxy-config:<CONFIG_PATH> -e SECRET=<SECRET> --name mtproxy telegrammessenger/proxy:latest
 ```
+
+### 5. Create Linux SWAP partition
+```
+# Create file for SWAP partition
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+# Mark file as a SWAP
+sudo mkswap /swapfile
+# Enable SWAP file
+sudo swapon /swapfile
+# Backup fstab configuration
+sudo cp /etc/fstab /etc/fstab.bak
+# Make SWAP partition permanent
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```

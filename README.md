@@ -1,7 +1,11 @@
 ## Usefull commands
-### 1. Close all ports except 22 with iptables:
+### 1. IPTABLES:
 ```
+// Close all ports except 22
 iptables -A INPUT -p tcp -m tcp -m multiport ! --dports 22 -j DROP
+
+// Accept all connection to 1723 port (pptp)
+iptables -A INPUT -p tcp -m tcp --dport 1723 -j ACCEPT
 ```
 
 ### 2. Check web project for malicious code:

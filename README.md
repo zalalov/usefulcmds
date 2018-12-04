@@ -49,3 +49,13 @@ sudo cp /etc/fstab /etc/fstab.bak
 # Make SWAP partition permanent
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
+
+### 6. OpenVPN
+```
+// Installing OpenVPN and configure 
+wget git.io/vpn —no-check-certificate -O openvpn-install.sh; bash openvpn-install.sh
+// FORWARD RULES BETWEEN eth and tun - run after installing openvpn to walk to internet
+iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o eth0 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o tun0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
+```

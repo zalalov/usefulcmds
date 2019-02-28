@@ -61,5 +61,5 @@ iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
 ```
 ### 7. One-line bash webserver which responds with selected static HTML page
 ```
-$ { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat index.html; } | nc -l -p 8080
+{ echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat index.html; } | nc -l -p 8080
 ```

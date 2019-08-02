@@ -63,3 +63,7 @@ iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
 ```
 { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat index.html; } | nc -l -p 8080
 ```
+### 8. Create SOCKS5 proxy based on GO and docker
+```
+docker run --restart unless-stopped -d --name socks5 -p 1080:1080 -e PROXY_USER=<proxy_user> -e PROXY_PASSWORD=<proxy_password> serjs/go-socks5-proxy
+```

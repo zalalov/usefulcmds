@@ -65,5 +65,9 @@ iptables -A FORWARD -i tun0 -o eth0 -j ACCEPT
 ```
 ### 8. Create SOCKS5 proxy based on GO and docker
 ```
+//Through Host's default route
 docker run --restart unless-stopped -d --name socks5 -p 1080:1080 -e PROXY_USER=<proxy_user> -e PROXY_PASSWORD=<proxy_password> serjs/go-socks5-proxy
+
+// By setting custom default route (for example bypassing host's VPN)
+docker run --restart unless-stopped --cap-add NET_ADMIN -d --name socks5 -p 1080:1080 -e PROXY_USER=<proxy_user> -e PROXY_PASSWORD=<proxy_password> serjs/go-socks5-proxy bash -c 'ip route del default && ip route add default via <default_route_address> && /socks5'
 ```

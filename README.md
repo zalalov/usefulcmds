@@ -71,3 +71,11 @@ docker run --restart unless-stopped -d --name socks5 -p 1080:1080 -e PROXY_USER=
 // By setting custom default route (for example bypassing host's VPN)
 docker run --restart unless-stopped --cap-add NET_ADMIN -d --name socks5 -p 1080:1080 -e PROXY_USER=<proxy_user> -e PROXY_PASSWORD=<proxy_password> serjs/go-socks5-proxy bash -c 'ip route del default && ip route add default via <default_route_address> && /socks5'
 ```
+
+### 8. Create HTTP proxy based on Tinyproxy (C) and docker
+```
+docker run -d --name tinyproxy -p <port>:8888 dannydirect/tinyproxy:latest <ACL>
+
+// For example
+docker run -d --name tinyproxy -p 3128:8888 dannydirect/tinyproxy:latest ANY
+```

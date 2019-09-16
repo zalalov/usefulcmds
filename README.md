@@ -79,3 +79,8 @@ docker run -d --name tinyproxy -p <port>:8888 dannydirect/tinyproxy:latest <ACL>
 // For example
 docker run -d --name tinyproxy -p 3128:8888 dannydirect/tinyproxy:latest ANY
 ```
+### 9. Store Git password
+```
+git config --global credential.helper store
+// then git pull...
+```

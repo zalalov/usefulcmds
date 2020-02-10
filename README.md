@@ -84,3 +84,21 @@ docker run -d --name tinyproxy -p 3128:8888 dannydirect/tinyproxy:latest ANY
 git config --global credential.helper store
 // then git pull...
 ```
+### 10. Let Me Know (lmk) - Notifier for long running commands in shell ( put in ~/.bashrc )
+```
+lmk(){
+    start=$(date +%s)
+    "$@"
+
+    if [ $? = 0 ];
+    then
+       ntfy -t "Success after $(($(date +%s) - start)) seconds." send "$(history|tail -n1|cut -c 12-)";
+    else
+       ntfy -t "Fail after $(($(date +%s) - start)) seconds." send "$(history|tail -n1|cut -c 12-)";
+    fi
+}
+```
+#### and execute commands by 
+```
+$ lmk docker-compose build
+```

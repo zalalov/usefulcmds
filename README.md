@@ -107,4 +107,4 @@ $ lmk docker-compose build
 ```
 bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
 ```
-More information [here](https://rtyley.github.io/bfg-repo-cleaner/)
+#### More information [here](https://rtyley.github.io/bfg-repo-cleaner/)

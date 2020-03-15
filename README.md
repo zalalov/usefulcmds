@@ -100,7 +100,7 @@ lmk(){
 ```
 #### and execute commands by 
 ```
-$ lmk docker-compose build
+lmk docker-compose build
 ```
 
 ### 11. Remove files with sensitive information from Git repo
@@ -108,3 +108,12 @@ $ lmk docker-compose build
 bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
 ```
 #### More information [here](https://rtyley.github.io/bfg-repo-cleaner/)
+
+### 12. Ignore already tracked file in git
+```
+git update-index --assume-unchanged <file>
+```
+#### revert:
+```
+git update-index --no-assume-unchanged <file>
+```

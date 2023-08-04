@@ -117,3 +117,17 @@ git update-index --assume-unchanged <file>
 ```
 git update-index --no-assume-unchanged <file>
 ```
+
+
+### 13. Quick local PostgreSQL db instance
+```
+docker run -d \                           
+        --name db \
+        -v $(pwd)/postgres-data:/var/lib/postgresql/data \
+        -p 127.0.0.1:5436:5432 \
+        -e POSTGRES_USER=user\
+        -e POSTGRES_PASSWORD=password\
+        -e POSTGRES_DB=db\
+        -e PGDATA=/var/lib/postgresql/data/pgdata \
+        postgres
+```

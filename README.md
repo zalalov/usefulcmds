@@ -131,3 +131,8 @@ docker run -d \
         -e PGDATA=/var/lib/postgresql/data/pgdata \
         postgres
 ```
+
+### 14. Wireguard Docker based VPN:
+```
+https://github.com/wg-easy/wg-easy#installation
+```
